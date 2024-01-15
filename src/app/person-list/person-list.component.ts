@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PersonService } from '../person/person.service';
+import { Person } from '../models/person';
 
 @Component({
   selector: 'app-person-list',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class PersonListComponent {
 
+  persons: Person[] = [];
+  constructor(private personService: PersonService) { }
+
+  ngOnInit(): void {
+    this.persons = this.personService.getPersons();
+  }
+deletePerson(id: string){
+  this.personService.deletePerson(id);
+}
 }

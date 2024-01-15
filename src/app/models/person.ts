@@ -1,4 +1,5 @@
 export interface Person {
+    id: string,
     nev: string,
     szul_datum: Date, 
     szul_hely: string,

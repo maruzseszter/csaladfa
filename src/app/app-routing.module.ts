@@ -7,7 +7,8 @@ import { PersonFormComponent } from './person-form/person-form.component';
 const routes: Routes = [
   {path:"", component: HomeComponent},
   {path:"list", component: PersonListComponent},
-  {path:"new", component: PersonFormComponent}
+  {path:"new", component: PersonFormComponent},
+  {path:"edit/:id", component: PersonFormComponent}
 
 ];
 
