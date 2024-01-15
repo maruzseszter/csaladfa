@@ -6,38 +6,41 @@ import { Person } from '../models/person';
 })
 
 export class PersonService {
-  private persons: Person [] = [];
+  private persons: Person[] = [];
 
-  constructor(){
+  constructor() {
     let savedPersons = localStorage.getItem("persons");
-    this.persons = savedPersons? JSON.parse(savedPersons) : [];
+    this.persons = savedPersons ? JSON.parse(savedPersons) : [];
   }
 
-//C R U D
+  //C R U D
 
-getPersons(): Person[] {
-  return this.persons;
-}
+  getPersons(): Person[] {
+    return this.persons;
+  }
 
-getPerson(id: string): Person | undefined {
-  return this.persons.find(per => per.id === id);
-}
+  getPerson(id: string): Person | undefined {
+    return this.persons.find(per => per.id === id);
+  }
 
-addPerson(person: Person): void {
-  person.id = Date.now().toString();
-  this.persons.push(person);
-  localStorage.setItem("persons", JSON.stringify(this.persons));
-}
+  addPerson(person: Person): void {
 
-deletePerson(id: string): void {
-  let index = this.persons.findIndex(per => per.id === id);
-  this.persons.splice(index,1)
-  localStorage.setItem("persons", JSON.stringify(this.persons));
-}
-updatePerson(id: string, updatedPerson: Person): void {
-  let index = this.persons.findIndex(per => per.id === updatedPerson.id);
-  this.persons[index] = updatedPerson;
-  localStorage.setItem("persons", JSON.stringify(this.persons));
-}
+    person.id = Date.now().toString();
 
+    this.persons.push(person);
+    localStorage.setItem("persons", JSON.stringify(this.persons));
+  }
+
+  deletePerson(id: string): void {
+    let index = this.persons.findIndex(per => per.id === id);
+    this.persons.splice(index, 1)
+    localStorage.setItem("persons", JSON.stringify(this.persons));
+  }
+
+  updatePerson(id: string, updatedPerson: Person): void {
+    let index = this.persons.findIndex(per => per.id === id);
+    this.persons[index] = updatedPerson;
+    localStorage.setItem("persons", JSON.stringify(this.persons));
+  }
+  
 }
