@@ -1,0 +1,77 @@
+<h3 class="mt-5 mb-3 text-center">Új személy hozzáadása</h3>
+<div class="mb-5"></div> 
+<div class="container-fluid d-flex justify-content-center align-items-center">
+    <form [formGroup]="personForm" (ngSubmit)="onSubmit()" class="mx-auto">
+
+
+
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Név</label>
+                <input class="form-control" type="text" formControlName="nev">
+                <small class="text-danger"
+                    *ngIf="personForm.get('nev')?.invalid && personForm.get('nev')?.touched">
+                    Név megadása kötelező!
+                </small>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Születési dátum</label>
+                <input class="form-control" type="date" formControlName="szul_datum">
+                <small class="text-danger"
+                    *ngIf="personForm.get('szul_datum')?.invalid && personForm.get('szul_datum')?.touched">
+                    Születési dátum megadása kötelező!
+                </small>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Születési hely</label>
+                <input class="form-control" type="text" formControlName="szul_hely">
+                <small class="text-danger"
+                    *ngIf="personForm.get('szul_hely')?.invalid && personForm.get('szul_hely')?.touched">
+                    Születési hely megadása kötelező!
+                </small>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Anyja neve</label>
+                <input class="form-control" type="text" formControlName="anyja_neve">
+                <small class="text-danger"
+                    *ngIf="personForm.get('anyja_neve')?.invalid && personForm.get('anyja_neve')?.touched">
+                    Anyja nevének megadása kötelező!
+                </small>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Apja neve</label>
+                <input class="form-control" type="text" formControlName="apja_neve">
+                <small class="text-danger"
+                    *ngIf="personForm.get('apja_neve')?.invalid && personForm.get('apja_neve')?.touched">
+                    Apja nevének megadása kötelező!
+                </small>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Halál dátuma</label>
+                <input class="form-control" type="date" formControlName="halal_datum">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Halál helye</label>
+                <input class="form-control" type="text" formControlName="halal_helye">
+            </div>
+        </div>
+
+        <div class="mb-5"></div> 
+        <div class="text-center">
+            <button class="btn btn-dark" type="submit" [disabled]="personForm.invalid">Küld</button>
+        </div>
+    </form>
+</div>
