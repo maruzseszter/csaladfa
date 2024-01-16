@@ -9,9 +9,12 @@ import { RouterModule } from '@angular/router';
   declarations: [
     HomeComponent
   ],
+  exports: [
+    HomeComponent
+  ],
   imports: [
     CommonModule, 
     RouterModule
-  ]
+  ], 
 })
 export class HomeModule { }

@@ -4,6 +4,7 @@ import { PersonFormComponent } from '../person-form/person-form.component';
 import { PersonListComponent } from '../person-list/person-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HomeModule } from '../home/home.module';
 
 
 
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule, 
     ReactiveFormsModule, 
-    RouterModule
+    RouterModule, 
+    HomeModule
   ]
 })
 export class PersonModule { }

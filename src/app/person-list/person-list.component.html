@@ -1,36 +1,80 @@
-<div class="container mt-5">
-    <h3 class="mb-5 text-center">Családtagok listázása</h3>
-  
-    <table class="table table-striped mx-auto" style="max-width: 800px;">
-      <thead>
-        <tr>
-          <th>Név</th>
-          <th>Születési dátum</th>
-          <th>Születési hely</th>
-          <th>Anyja neve</th>
-          <th>Apja neve</th>
-          <th>Halál dátuma</th>
-          <th>Halál helye</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let person of persons">
-          <td>{{person.nev}}</td>
-          <td>{{person.szul_datum}}</td>
-          <td>{{person.szul_hely}}</td>
-          <td>{{person.anyja_neve}}</td>
-          <td>{{person.apja_neve}}</td>
-          <td>{{person.halal_datum}}</td>
-          <td>{{person.halal_helye}}</td>
-          <button (click)="deletePerson(person.id)">Törlés</button>
-          <button [routerLink]="['/edit', person.id]">Módosít</button>
-        </tr>
-      </tbody>
-    </table>
-<!--   
+<!-- <div class="container mt-5">
+  <h3 class="mb-5 text-center">Családtagok listázása</h3>
+
+  <table class="table table-striped mx-auto" style="max-width: 800px;">
+    <thead>
+      <tr>
+        <th>Név</th>
+        <th>Születési dátum</th>
+        <th>Születési hely</th>
+        <th>Anyja neve</th>
+        <th>Apja neve</th>
+        <th>Halál dátuma</th>
+        <th>Halál helye</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of persons">
+        <td>{{person.nev}}</td>
+        <td>{{person.szul_datum}}</td>
+        <td>{{person.szul_hely}}</td>
+        <td>{{person.anyja_neve}}</td>
+        <td>{{person.apja_neve}}</td>
+        <td>{{person.halal_datum}}</td>
+        <td>{{person.halal_helye}}</td>
+        <button class="btn btn-danger" (click)="deletePerson(person.id)">Törlés</button>
+        <button class="btn btn-warning" [routerLink]="['/edit', person.id]">Módosít</button>
+      </tr>
+    </tbody>
+  </table> -->
+  <!--   
     <div class="mb-3 d-flex justify-content-center mt-5">
       <button class="btn btn-dark mx-auto" (click)="navigateToHomePage()">Főoldal</button>
     </div> -->
 
+<!-- </div> -->
+
+
+<div class="container mt-5">
+  <h3 class="mb-5 text-center">Családtagok listázása</h3>
+
+  <table class="table table-striped mx-auto">
+    <thead>
+      <tr>
+        <th>Név</th>
+        <th>Születési dátum</th>
+        <th>Születési hely</th>
+        <th>Anyja neve</th>
+        <th>Apja neve</th>
+        <th>Halál dátuma</th>
+        <th>Halál helye</th>
+        <th>Műveletek</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of persons">
+        <td>{{person.nev}}</td>
+        <td>{{person.szul_datum}}</td>
+        <td>{{person.szul_hely}}</td>
+        <td>{{person.anyja_neve}}</td>
+        <td>{{person.apja_neve}}</td>
+        <td>{{person.halal_datum}}</td>
+        <td>{{person.halal_helye}}</td>
+        <td>
+          <div class="btn-toolbar" role="toolbar" aria-label="Műveletek">
+            <div class="btn-group mr-2" role="group" aria-label="Törlés">
+              <button class="btn btn-danger" (click)="deletePerson(person.id)">Törlés</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Módosít">
+              <button class="btn btn-warning" [routerLink]="['/edit', person.id]">Módosít</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="mb-3 d-flex justify-content-center mt-5">
+    <button class="btn btn-dark mx-auto" (click)="navigateToHomePage()">Főoldal</button>
   </div>
-  
+</div>
