@@ -37,6 +37,8 @@ export class PersonService {
     localStorage.setItem("persons", JSON.stringify(this.persons));
   }
 
+  
+
   updatePerson(id: string, updatedPerson: Person): void {
     let index = this.persons.findIndex(per => per.id === id);
     this.persons[index] = updatedPerson;
